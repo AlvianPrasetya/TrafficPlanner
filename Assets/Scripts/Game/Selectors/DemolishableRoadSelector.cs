@@ -2,6 +2,15 @@
 
 public class DemolishableRoadSelector : Selector<Road> {
 
+	public override void OnDeactivated() {
+		base.OnDeactivated();
+
+		if (selected != null) {
+			selected.UnindicateDemolish();
+			selected = null;
+		}
+	}
+
 	protected override void UpdateSelection() {
 		Ray cameraRay = referenceCamera.ScreenPointToRay(Input.mousePosition);
 

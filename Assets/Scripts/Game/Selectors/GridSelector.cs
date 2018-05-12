@@ -23,7 +23,13 @@ public class GridSelector : Selector<Grid> {
 
 	public override void OnDeactivated() {
 		base.OnDeactivated();
-		
+
+		selectedBaseGrid = null;
+		if (selected != null) {
+			selected.Unselect();
+			selected = null;
+		}
+
 		Vector3 siteDimensions = SiteManager.Instance.gridManager.SiteDimensions;
 		for (int x = 1; x <= siteDimensions.x; x++) {
 			for (int z = 1; z <= siteDimensions.z; z++) {

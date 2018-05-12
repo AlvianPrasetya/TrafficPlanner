@@ -114,7 +114,7 @@ public class RoadPreview : MonoBehaviour, IBigridTransform, IValidatable {
 			return;
 		}
 
-		if (CalculateSqrSlope() > 0.04f) {
+		if (CalculateSqrSlope() > 0.041f) {
 			IsValid = false;
 			invalidStatus = "Road too steep!";
 			return;
